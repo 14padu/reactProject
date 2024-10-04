@@ -1,10 +1,9 @@
-/* src/styles/PersonList.css */
-
 .person-list {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    color: #dc143c;
 }
 
 .person-list h1 {
@@ -21,8 +20,7 @@ table {
     margin-bottom: 20px;
 }
 
-th,
-td {
+th,td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -41,26 +39,11 @@ th {
     text-decoration: underline;
 }
 
-/* Add these to PersonList.css */
-
 @media (max-width: 768px) {
     table {
         font-size: 14px;
     }
-
-    th,
-    td {
+    th,td {
         padding: 5px;
-    }
-}
-
-@media (max-width: 480px) {
-    table {
-        font-size: 12px;
-    }
-
-    th,
-    td {
-        padding: 3px;
     }
 }

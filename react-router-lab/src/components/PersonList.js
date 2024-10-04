@@ -1,14 +1,59 @@
-import axios from "axios";
-import React from"react";
+// src/components/PersonList.js
 
-const DeletePerson =()=>{
-    const output =axios.get("https://3001-14padu-reactproject-sr8wbupxn74.ws-us116.gitpod.io/persons")
-    console.log(output);
-    const API_URL=person.env.REACT_APP_API_URL
-    console.log(API_URL)
-    return{
-        <div><h2></h2>personList</h2></div>
-    }
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-    export default PersonList;
-    
+import Notification from './Notification';
+import '../styles/PersonList.css'; // Component-specific styles
+
+const API_URL = process.env.REACT_APP_API_URL;
+
+const PersonList = () => {
+  const [people, setPeople] = useState([]);
+  const [notification, setNotification] = useState('');
+
+  useEffect(() => {
+    const fetchPeople = async () => {
+      try {
+        const response = await axios.get(API_URL);
+        setPeople(response.data);
+      } catch (error) {
+        console.error('Error fetching people:', error);
+      }
+    };
+    fetchPeople();
+  }, []);
+
+  return (
+    <div className="person-list">
+      <h1>Person List</h1>
+      <Link to="/add" className="btn btn-add add-person-button">Add Person</Link>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+          </tr>
+        </thead>
+        <tbody>
+          {people.map(person => (
+            <tr key={person.id}>
+              <td>
+                <Link to={`/person/${person.id}`} className="person-name">
+                  {person.name}
+                </Link>
+              </td>
+              <td>{person.age}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {notification && (
+        <Notification message={notification} onClose={() => setNotification('')} />
+      )}
+    </div>
+  );
+};
+
+export default PersonList;
