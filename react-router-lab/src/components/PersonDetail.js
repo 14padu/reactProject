@@ -1,8 +1,8 @@
 import React from 'react';
 // import axios from 'axios';
-import '../styles/PersonDetail.css'
+import '../style/PersonDetail.css'
 
-const API_URL = process.env.REACT_APP_API_URL
+// const API_URL = process.env.REACT_APP_API_URL
 
 
 const PersonDetail = () => {

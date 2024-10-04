@@ -12,11 +12,12 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
+    "server": "^1.0.41",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "app": "react-scripts start",
-    "db": "json-server --watch-db.json  --port 5000",
+    "db": "json-server --watch db.json  --port 5000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
