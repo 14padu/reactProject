@@ -1,38 +1,39 @@
+/* src/styles/PersonEdit.css */
+
 .person-edit {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
-    color: #dc143c;
+    padding: 25px;
 }
 
 .person-edit h1 {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .form-container {
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
 }
 
 .input-field {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #aaa;
+    border-radius: 6px;
 }
 
 .person-actions {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 400px;
-    margin-top: 20px;
+    max-width: 450px;
+    margin-top: 25px;
 }
 
 .person-actions button {
-    margin: 0 5px;
+    margin: 0 8px;
 }
 
 @media (max-width: 480px) {
@@ -41,7 +42,7 @@
     }
 
     .person-actions button {
-        margin: 5px 0;
+        margin: 8px 0;
         width: 100%;
     }
 }

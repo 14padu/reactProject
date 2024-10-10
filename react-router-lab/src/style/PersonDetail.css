@@ -1,9 +1,11 @@
+/* src/styles/PersonDetail.css */
+
+
 .person-detail {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    color: #dc143c;
 }
 
 .person-info {
@@ -18,13 +20,14 @@
     max-width: 400px;
 }
 
-.person-actions button,.person-actions a {
+.person-actions button,
+.person-actions a {
     margin: 0 5px;
-    min-width: 100px;
+    min-width: 100px;/* /* Ensure buttons have minimum width */
 }
 
 .btn-back {
-    background-color: #007bff !important;
+    background-color: #007bff !important;/* Override any other styles */
     color: white !important;
 }
 
@@ -33,7 +36,8 @@
         flex-direction: column;
     }
 
-    .person-actions button,.person-actions a {
+    .person-actions button,
+    .person-actions a {
         margin: 5px 0;
         width: 100%;
     }

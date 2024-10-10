@@ -5,32 +5,29 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 import Notification from './Notification';
-import '../style/PersonList.css'; // Component-specific styles
+import '../styles/PersonList.css'; // Component-specific styles
 
-const API_URL = process.env.REACT_APP_API_URL
-const output = axios.get("https://5000-14padu-reactproject-22eos55a65b.ws-us116.gitpod.io/persons")
+const API_URL = process.env.REACT_APP_API_URL;
 
 const PersonList = () => {
   const [people, setPeople] = useState([]);
   const [notification, setNotification] = useState('');
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchPeople = async () => {
-      try{
-        const response=await axios.get(API_URL)
-        setPeople(response.data)
-
-      }catch (error){
-        console.error('error fetching people:',error);
+      try {
+        const response = await axios.get(API_URL);
+        setPeople(response.data);
+      } catch (error) {
+        console.error('Error fetching people:', error);
       }
     };
     fetchPeople();
+  }, []);
 
-  },[]);
-
-  return(
-    <div className="personList">
-      <h1>personList</h1>
+  return (
+    <div className="person-list">
+      <h1>Person List</h1>
       <Link to="/add" className="btn btn-add add-person-button">Add Person</Link>
       <table>
         <thead>
@@ -45,7 +42,7 @@ const PersonList = () => {
               <td>
                 <Link to={`/person/${person.id}`} className="person-name">
                   {person.name}
-                  </Link>
+                </Link>
               </td>
               <td>{person.age}</td>
             </tr>
@@ -55,12 +52,9 @@ const PersonList = () => {
       {notification && (
         <Notification message={notification} onClose={() => setNotification('')} />
       )}
-      </div>
+    </div>
   );
 };
 
 export default PersonList;
-    
-  
 
-  
